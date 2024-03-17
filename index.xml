@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://FantasyBee.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Mar 2024 10:40:22 +0800</lastBuildDate>
+    <atom:link href="https://FantasyBee.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First</title>
+      <link>https://FantasyBee.github.io/post/first/</link>
+      <pubDate>Sun, 17 Mar 2024 10:40:22 +0800</pubDate>
+      <guid>https://FantasyBee.github.io/post/first/</guid>
+      <description>欢迎来到FantasyBee的个人博客！！</description>
+    </item>
+    <item>
+      <title>Linux搭建</title>
+      <link>https://FantasyBee.github.io/post/huang-linux/</link>
+      <pubDate>Sun, 17 Mar 2024 10:40:22 +0800</pubDate>
+      <guid>https://FantasyBee.github.io/post/huang-linux/</guid>
+      <description>一、查看基础环境 检查红框内的BIOS跟安全启动状态是否一致&#xA;二、准备安装文件 1.下载Ubuntu 22.04.01 LTS镜像ISO文件 这是官网下载：&#xA;https://ubuntu.com/download/desktop&#xA;如果速度较慢，可以选择清华镜像，清华镜像网址：&#xA;https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/&#xA;2.下载官方推荐的U盘启动制作工具 U盘启动制作工具选择RUFUS：&#xA;https://rufus.ie/zh/&#xA;3.制作启动U盘 因为该过程会对U盘格式化，擦除u盘上所有数据，建议备份好所有U盘上文件；&#xA;（1）打开Rufus 3.20软件，导入镜像文件；分区类型选择GPT，目标分区类型选UEFI（非CSM）；文件系统选择NTFS，簇大小选默认：4096字节（默认），设置完成后点击开始。接下来提示选择写入模式，选择第一个：以ISO镜像模式写入（推荐），点击OK。&#xA;（2）文件开始擦除数据并写入文件，等待几分钟，我的用10分钟，“准备就绪”，点关闭。&#xA;4.新建硬盘分区用来安装Ubuntu系统 设置里面搜磁盘管理-&amp;gt;选择一个磁盘-&amp;gt;右键-&amp;gt;压缩卷。我分了100G：&#xA;5.BIOS设置&#xA;在设置找到高级启动，并且点击立即启动，然后在BIOS设置下将自己的U盘设置为启动优先项。&#xA;三、安装Ubuntu 1.准备安装 插入U盘，开机，按Delete进入启动项设置，选择第一个“Ubuntu （safe graphics）”，回车，开始进入装机界面。选择语言“中文（简体）”，点击“安装Ubuntu”&#xA;2.接下来按照Ubuntu系统的提示选择，可一路默认安装。&#xA;键盘布局（默认：Chinese）&#xA;无线（默认：I donot want to connect to a WI-Fi network right now）&#xA;更新和其他软件（默认：正常安装）&#xA;安装类型（默认：安装Ubuntu，与Windows Boot Manager 共存，出现“将改动写入磁盘吗？”对话框，点击“继续”）&#xA;您在什么地方？（时区选择，省事些建议选择“London”；如果非要选择“Shanghai”，后面会涉及双系统时间不一致问题，需要调整，见第五部分）&#xA;您是谁？（输入用户名和密码，点“继续”）&#xA;开始安装，等待一会儿，安装完成，提示重启，拔掉U盘，点击“现在重启”，选择第一个Ubuntu系统。至此安装完成。&#xA;四、安装成功</description>
+    </item>
+    <item>
+      <title>个人博客搭建</title>
+      <link>https://FantasyBee.github.io/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 17 Mar 2024 10:40:22 +0800</pubDate>
+      <guid>https://FantasyBee.github.io/post/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>使用Hugo和GitHub page搭建个人博客 一、Linux环境下先配置Go语言环境 一、下载Ｇo语言安装包&#xA;使用tar命令将档案包解压到/usr/local目录中:&#xA;sudo tar -C /usr/local -xzf go1.11.5.linux-amd64.tar.gz&#xA;二、添加环境变量和工作变量到系统环境中&#xA;先进入到profile文件目录&#xA;cd /etc&#xA;打开profile文件：&#xA;sudo gedit profile&#xA;把这下面的命令行添加到文件最末面：（第一个是go的安装包路径，第二个是你的开发空间，两个需要不同目录，否则会导致文件夹混淆）&#xA;#GO export PATH=$PATH:/usr/local/go/bin #GOPATH export GOPATH=你的go工作空间目录 export PATH=$PATH:$GOPATH/bin&#xA;针对所有用户的需要重启电脑才可以生效；针对当前用户的，在终端里使用source命令加载这个$HOME/.profile即可生效。&#xA;source ~/.profile&#xA;三、查看当前go版本&#xA;任一命令行终端：&#xA;go version&#xA;如果输出类似如下，说明你的go安装环境和工作环境皆配置成功！&#xA;![81b2dd6d879fdbea0660762bb2dfcb7.png](../Typora/新建文件夹 (2)/Typora/ipic/1609922611624278.png)&#xA;二、安装Git 直接去官网安装Linux版本&#xA;Git - 安装 Git (git-scm.com)&#xA;安装完成后测试：git version&#xA;并且需要配置你的git用户邮箱与用户名&#xA;三、安装hugo 终端输入：sudo snap install hugo&#xA;检测：hugo version&#xA;四、创建GitHub仓库 创建博客源仓库 命名博客源仓库（whatever you want） 勾选 Public，设置为公开仓库。 勾选添加 README 文件 创建 GitHub Page 仓库 命名 GitHub Pages 仓库，这个仓库必须使用特殊的命名格式 &amp;lt;username.</description>
+    </item>
+  </channel>
+</rss>

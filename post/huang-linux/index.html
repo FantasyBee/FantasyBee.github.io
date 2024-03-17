@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<title>My New Hugo Site | Linux搭建</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="apple-touch-icon" sizes="180x180" href='/apple-touch-icon.png'>
+<link rel="icon" type="image/png" sizes="32x32" href='/favicon-32x32.png'>
+<link rel="icon" type="image/png" sizes="16x16" href='/favicon-16x16.png'>
+<link rel="manifest" href='/site.webmanifest'>
+
+
+
+
+<link rel="stylesheet" href="/css/style.min.475640bbbd5fb74dc21b7661bd8eefec4af90f2dc97e663a465a457195039b7d.css" />
+
+
+<link href='/css/style.min.css' rel="stylesheet" type="text/css">
+<link rel="stylesheet" href='/css/custom.css'>
+
+<meta property="og:site_name" content="My New Hugo Site" />
+<meta property="og:title" content="Linux搭建 | My New Hugo Site" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://FantasyBee.github.io/post/huang-linux/" />
+<meta property="og:locale" content="en_us" />
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:title" content="Linux搭建">
+
+
+<meta property="og:image" content="https://FantasyBee.github.io/">
+
+<meta name="description" content="一、查看基础环境 检查红框内的BIOS跟安全启动状态是否一致
+二、准备安装文件 1.下载Ubuntu 22.04.01 LTS镜像ISO文件 这是官网下载：
+https://ubuntu.com/download/desktop
+如果速度较慢，可以选择清华镜像，清华镜像网址：
+https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/
+2.下载官方推荐的U盘启动制作工具 U盘启动制作工具选择RUFUS：
+https://rufus.ie/zh/
+3.制作启动U盘 因为该过程会对U盘格式化，擦除u盘上所有数据，建议备份好所有U盘上文件；
+（1）打开Rufus 3.20软件，导入镜像文件；分区类型选择GPT，目标分区类型选UEFI（非CSM）；文件系统选择NTFS，簇大小选默认：4096字节（默认），设置完成后点击开始。接下来提示选择写入模式，选择第一个：以ISO镜像模式写入（推荐），点击OK。
+（2）文件开始擦除数据并写入文件，等待几分钟，我的用10分钟，“准备就绪”，点关闭。
+4.新建硬盘分区用来安装Ubuntu系统 设置里面搜磁盘管理-&gt;选择一个磁盘-&gt;右键-&gt;压缩卷。我分了100G：
+5.BIOS设置
+在设置找到高级启动，并且点击立即启动，然后在BIOS设置下将自己的U盘设置为启动优先项。
+三、安装Ubuntu 1.准备安装 插入U盘，开机，按Delete进入启动项设置，选择第一个“Ubuntu （safe graphics）”，回车，开始进入装机界面。选择语言“中文（简体）”，点击“安装Ubuntu”
+2.接下来按照Ubuntu系统的提示选择，可一路默认安装。
+键盘布局（默认：Chinese）
+无线（默认：I donot want to connect to a WI-Fi network right now）
+更新和其他软件（默认：正常安装）
+安装类型（默认：安装Ubuntu，与Windows Boot Manager 共存，出现“将改动写入磁盘吗？”对话框，点击“继续”）
+您在什么地方？（时区选择，省事些建议选择“London”；如果非要选择“Shanghai”，后面会涉及双系统时间不一致问题，需要调整，见第五部分）
+您是谁？（输入用户名和密码，点“继续”）
+开始安装，等待一会儿，安装完成，提示重启，拔掉U盘，点击“现在重启”，选择第一个Ubuntu系统。至此安装完成。
+四、安装成功" />
+<meta property="og:description" content="一、查看基础环境 检查红框内的BIOS跟安全启动状态是否一致
+二、准备安装文件 1.下载Ubuntu 22.04.01 LTS镜像ISO文件 这是官网下载：
+https://ubuntu.com/download/desktop
+如果速度较慢，可以选择清华镜像，清华镜像网址：
+https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/
+2.下载官方推荐的U盘启动制作工具 U盘启动制作工具选择RUFUS：
+https://rufus.ie/zh/
+3.制作启动U盘 因为该过程会对U盘格式化，擦除u盘上所有数据，建议备份好所有U盘上文件；
+（1）打开Rufus 3.20软件，导入镜像文件；分区类型选择GPT，目标分区类型选UEFI（非CSM）；文件系统选择NTFS，簇大小选默认：4096字节（默认），设置完成后点击开始。接下来提示选择写入模式，选择第一个：以ISO镜像模式写入（推荐），点击OK。
+（2）文件开始擦除数据并写入文件，等待几分钟，我的用10分钟，“准备就绪”，点关闭。
+4.新建硬盘分区用来安装Ubuntu系统 设置里面搜磁盘管理-&gt;选择一个磁盘-&gt;右键-&gt;压缩卷。我分了100G：
+5.BIOS设置
+在设置找到高级启动，并且点击立即启动，然后在BIOS设置下将自己的U盘设置为启动优先项。
+三、安装Ubuntu 1.准备安装 插入U盘，开机，按Delete进入启动项设置，选择第一个“Ubuntu （safe graphics）”，回车，开始进入装机界面。选择语言“中文（简体）”，点击“安装Ubuntu”
+2.接下来按照Ubuntu系统的提示选择，可一路默认安装。
+键盘布局（默认：Chinese）
+无线（默认：I donot want to connect to a WI-Fi network right now）
+更新和其他软件（默认：正常安装）
+安装类型（默认：安装Ubuntu，与Windows Boot Manager 共存，出现“将改动写入磁盘吗？”对话框，点击“继续”）
+您在什么地方？（时区选择，省事些建议选择“London”；如果非要选择“Shanghai”，后面会涉及双系统时间不一致问题，需要调整，见第五部分）
+您是谁？（输入用户名和密码，点“继续”）
+开始安装，等待一会儿，安装完成，提示重启，拔掉U盘，点击“现在重启”，选择第一个Ubuntu系统。至此安装完成。
+四、安装成功" />
+<meta property="twitter:description" content="一、查看基础环境 检查红框内的BIOS跟安全启动状态是否一致
+二、准备安装文件 1.下载Ubuntu 22.04.01 LTS镜像ISO文件 这是官网下载：
+https://ubuntu.com/download/desktop
+如果速度较慢，可以选择清华镜像，清华镜像网址：
+https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/
+2.下载官方推荐的U盘启动制作工具 U盘启动制作工具选择RUFUS：
+https://rufus.ie/zh/
+3.制作启动U盘 因为该过程会对U盘格式化，擦除u盘上所有数据，建议备份好所有U盘上文件；
+（1）打开Rufus 3.20软件，导入镜像文件；分区类型选择GPT，目标分区类型选UEFI（非CSM）；文件系统选择NTFS，簇大小选默认：4096字节（默认），设置完成后点击开始。接下来提示选择写入模式，选择第一个：以ISO镜像模式写入（推荐），点击OK。
+（2）文件开始擦除数据并写入文件，等待几分钟，我的用10分钟，“准备就绪”，点关闭。
+4.新建硬盘分区用来安装Ubuntu系统 设置里面搜磁盘管理-&gt;选择一个磁盘-&gt;右键-&gt;压缩卷。我分了100G：
+5.BIOS设置
+在设置找到高级启动，并且点击立即启动，然后在BIOS设置下将自己的U盘设置为启动优先项。
+三、安装Ubuntu 1.准备安装 插入U盘，开机，按Delete进入启动项设置，选择第一个“Ubuntu （safe graphics）”，回车，开始进入装机界面。选择语言“中文（简体）”，点击“安装Ubuntu”
+2.接下来按照Ubuntu系统的提示选择，可一路默认安装。
+键盘布局（默认：Chinese）
+无线（默认：I donot want to connect to a WI-Fi network right now）
+更新和其他软件（默认：正常安装）
+安装类型（默认：安装Ubuntu，与Windows Boot Manager 共存，出现“将改动写入磁盘吗？”对话框，点击“继续”）
+您在什么地方？（时区选择，省事些建议选择“London”；如果非要选择“Shanghai”，后面会涉及双系统时间不一致问题，需要调整，见第五部分）
+您是谁？（输入用户名和密码，点“继续”）
+开始安装，等待一会儿，安装完成，提示重启，拔掉U盘，点击“现在重启”，选择第一个Ubuntu系统。至此安装完成。
+四、安装成功" />
+
+
+</head>
+
+<body class="flex flex-col min-h-screen">
+  <main class="flex-grow"><header>
+    <div id="overlay">
+        <ul class="text-center list-none text-white text-3xl">
+            
+        </ul>
+    </div>
+    <nav class="flex items-center justify-between flex-wrap bg-opacity-100 p-8">
+        <div class="flex items-center flex-shrink-0 text-xl text-grey-900 mr-6">
+            <a href="https://FantasyBee.github.io/"><img alt=""
+                    class=" mr-3" src="/"></a>
+        </div>
+        <div class="block lg:hidden">
+            <div id="hamburgerbtn" class="flex cursor-pointer items-center w-14 h-10 py-2 rounded mopen">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+        <div class="hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
+            <div class="text-lg lg:flex-grow">
+            </div>
+            <div class="text-lg">
+                
+            </div>
+        </div>
+    </nav>
+</header><div class="scroll-top rounded-full">
+      <span class="icon-keyboard_arrow_up text-2xl"></span>
+    </div>
+<div class="mx-auto my-10 max-w-6xl">
+  <div class="mx-3 col-span-3 lg:col-span-2 px-2">
+    <h1 class="title text-5xl mb-4">Linux搭建</h1>
+    <div class="content prose md:prose-lg lg:prose-xl max-w-none py-1"><h2 id="一查看基础环境">一、查看基础环境</h2>
+<p>检查红框内的BIOS跟安全启动状态是否一致</p>
+<p><img src="https://s2.loli.net/2024/03/10/19jSnRu7N5ZJx8C.png" alt="1"></p>
+<h2 id="二准备安装文件">二、准备安装文件</h2>
+<h4 id="1下载ubuntu-220401-lts镜像iso文件">1.下载Ubuntu 22.04.01 LTS镜像ISO文件</h4>
+<p>这是官网下载：</p>
+<p><a href="https://ubuntu.com/download/desktop">https://ubuntu.com/download/desktop</a></p>
+<p>如果速度较慢，可以选择清华镜像，清华镜像网址：</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/22.04.1/</a></p>
+<h4 id="2下载官方推荐的u盘启动制作工具">2.下载官方推荐的U盘启动制作工具</h4>
+<p>U盘启动制作工具选择RUFUS：</p>
+<p><a href="https://rufus.ie/zh/">https://rufus.ie/zh/</a></p>
+<h4 id="3制作启动u盘">3.制作启动U盘</h4>
+<p>因为该过程会对U盘格式化，擦除u盘上所有数据，建议备份好所有U盘上文件；</p>
+<p>（1）打开Rufus 3.20软件，导入镜像文件；分区类型选择GPT，目标分区类型选UEFI（非CSM）；文件系统选择NTFS，簇大小选默认：4096字节（默认），设置完成后点击开始。接下来提示选择写入模式，选择第一个：以ISO镜像模式写入（推荐），点击OK。</p>
+<p><img src="https://s2.loli.net/2024/03/10/ztM79wBEGclrQZm.png" alt="2"></p>
+<p>（2）文件开始擦除数据并写入文件，等待几分钟，我的用10分钟，“准备就绪”，点关闭。</p>
+<p><img src="https://s2.loli.net/2024/03/10/riJGXa64dzsm7eK.png" alt="3"></p>
+<h4 id="4新建硬盘分区用来安装ubuntu系统">4.新建硬盘分区用来安装Ubuntu系统</h4>
+<p>设置里面搜磁盘管理-&gt;选择一个磁盘-&gt;右键-&gt;压缩卷。我分了100G：</p>
+<p><img src="https://s2.loli.net/2024/03/10/sFyf9H4BTwA5lxS.png" alt="4"></p>
+<p><img src="https://s2.loli.net/2024/03/10/7ZDAxlug5wSrt2J.png" alt="5"></p>
+<p>5.BIOS设置</p>
+<p>在设置找到高级启动，并且点击立即启动，然后在BIOS设置下将自己的U盘设置为启动优先项。</p>
+<h2 id="三安装ubuntu">三、安装Ubuntu</h2>
+<h4 id="1准备安装">1.准备安装</h4>
+<p>插入U盘，开机，按Delete进入启动项设置，选择第一个“Ubuntu （safe graphics）”，回车，开始进入装机界面。选择语言“中文（简体）”，点击“安装Ubuntu”</p>
+<p><img src="https://s2.loli.net/2024/03/10/JShfd4vBGMgEuXa.png" alt="6"></p>
+<p>2.接下来按照Ubuntu系统的提示选择，可一路默认安装。</p>
+<p>键盘布局（默认：Chinese）</p>
+<p>无线（默认：I donot want to connect to a WI-Fi network right now）</p>
+<p>更新和其他软件（默认：正常安装）</p>
+<p>安装类型（默认：安装Ubuntu，与Windows Boot Manager 共存，出现“将改动写入磁盘吗？”对话框，点击“继续”）</p>
+<p>您在什么地方？（时区选择，省事些建议选择“London”；如果非要选择“Shanghai”，后面会涉及双系统时间不一致问题，需要调整，见第五部分）</p>
+<p>您是谁？（输入用户名和密码，点“继续”）</p>
+<p>开始安装，等待一会儿，安装完成，提示重启，拔掉U盘，点击“现在重启”，选择第一个Ubuntu系统。至此安装完成。</p>
+<p>四、安装成功</p>
+</div>
+  </div>
+</div>
+
+  </main><footer class="bg-tlgray-100">
+  
+  <script src='/js/clipboard.min.js'></script>
+  <script src='/js/highlight.min.js'></script>
+  <script src='/js/highlightjs-line-numbers.min.js'></script>
+  <script src='/js/sweetalert2.min.js'></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    new ClipboardJS('.url');
+
+    function OnClickURL() {
+      Swal.fire({
+        icon: 'success',
+        title: 'Copied!',
+        text: 'Copied the URL and title.'
+      })
+    }
+  </script>
+  
+  <script>
+    function toggleNav() {
+      var hamburger = document.getElementById("hamburgerbtn");
+      var overlay = document.getElementById("overlay");
+      var body = document.body;
+
+      hamburger.addEventListener("click", function () {
+        overlay.classList.toggle("open");
+        hamburger.classList.toggle("is-open");
+        body.classList.toggle("scroll-lock");
+      });
+    }
+    toggleNav();
+
+    document.querySelector('.scroll-top').addEventListener('click', () => {
+      document.documentElement.scrollTop = 0;
+    });
+  </script>
+  
+  <link href='/css/webfonts.min.css' rel="stylesheet" />
+  
+  <div class="flex items-center justify-between flex-wrap bg-gray-800 p-8 text-white">
+    <div class="items-center text-xl text-grey-900 mr-6">
+      
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto" id="mobileMenu">
+      <div class="text-lg lg:flex-grow">
+      </div>
+      <div class="flex flex-row items-center text-lg">
+        
+      </div>
+    </div>
+  </div>
+  <div class="copy pl-8 py-5 bg-tlgray-700 text-white text-md">
+    &copy; My New Hugo Site 2024 All Rights Reserved.
+  </div>
+</footer>
+</body>
+
+</html>
